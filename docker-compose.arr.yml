@@ -1,0 +1,19 @@
+services:
+  qbittorrent:
+    image: ghcr.io/hotio/qbittorrent
+    container_name: qbittorrent
+    ports:
+      - "8080:8080"
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - UMASK=002
+      - TZ=Europe/London
+      - WEBUI_PORTS=8080/tcp,8080/udp
+      - LIBTORRENT=v1
+      - UNBOUND_ENABLED=true
+      - UNBOUND_NAMESERVERS=194.242.2.2@853,194.242.2.4@853
+    volumes:
+      - ./qbittorrent:/config
+    dns:
+      - 127.0.0.1
