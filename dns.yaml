@@ -1,0 +1,47 @@
+#!/usr/bin/env ansible-playbook
+
+# https://am.i.mullvad.net/dnsleak
+# You may need to edit NetworkManager on Arch, but not Ubuntu:
+# sudo nvim /etc/NetworkManager/NetworkManager.conf
+# ---
+# # Configuration file for NetworkManager.
+# # See "man 5 NetworkManager.conf" for details.
+# [main]
+# dns=systemd-resolved
+
+# [ipv4]
+# ignore-auto-dns=true
+
+# [ipv6]
+# ignore-auto-dns=true
+
+- name: Configure systemd-resolved for Mullvad DNS
+  hosts: localhost
+  connection: local
+  become: true #sudo
+  tasks:
+    - name: Ensure resolved.conf.d directory exists
+      ansible.builtin.file:
+        path: /etc/systemd/resolved.conf.d
+        state: directory
+        owner: root
+        group: root
+        mode: '0755'
+
+    - name: Ensure Mullvad DNS drop-in exists
+      ansible.builtin.copy:
+        dest: /etc/systemd/resolved.conf.d/mullvad.conf
+        content: |
+          [Resolve]
+          DNS=194.242.2.2#dns.mullvad.net
+          DNSOverTLS=yes
+          DNSSEC=no
+          Domains=~.
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: Restart systemd-resolved
+      ansible.builtin.systemd:
+        name: systemd-resolved
+        state: restarted
