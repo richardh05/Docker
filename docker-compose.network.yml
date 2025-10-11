@@ -3,6 +3,11 @@ services:
   tailscale:
     image: tailscale/tailscale:latest
     container_name: tailscale
+    labels:
+      glance.name: Tailscale
+      glance.icon: sh:tailscale
+      glance.description: VPN
+      glance.url: http://${URL}:8080
     hostname: jellyfin-server
     network_mode: "host"   # required so tailscale gives your *host* a tailnet IP
     cap_add:

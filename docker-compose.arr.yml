@@ -2,8 +2,13 @@ services:
   qbittorrent:
     image: ghcr.io/hotio/qbittorrent
     container_name: qbittorrent
+    labels:
+      glance.name: qbittorrent
+      glance.icon: sh:qbittorrent
+      glance.description: Torrent client
+      glance.url: http://${URL}:9090
     ports:
-      - "8080:8080"
+      - "9090:8080"
     environment:
       - PUID=1000
       - PGID=1000
@@ -22,6 +27,11 @@ services:
   prowlarr:
     image: ghcr.io/hotio/prowlarr
     container_name: prowlarr
+    labels:
+      glance.name: Prowlarr
+      glance.icon: sh:prowlarr
+      glance.description: Indexer
+      glance.url: http://${URL}:9696
     ports:
       - "9696:9696"
     environment:
@@ -40,6 +50,11 @@ services:
   radarr:
     image: ghcr.io/hotio/radarr
     container_name: radarr
+    labels:
+      glance.name: Radarr
+      glance.icon: sh:radarr
+      glance.description: Movie Indexer
+      glance.url: http://${URL}:9696
     ports:
       - "7878:7878"
     environment:
