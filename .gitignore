@@ -8,9 +8,7 @@ jellyfin/*
 jellyfin/config/*
 !jellyfin/config/system.xml
 
-#arr
 prowlarr/*
 radarr/*
-
-#qbittorrent
 qbittorrent/*
+immich/*

@@ -38,7 +38,7 @@ services:
       - PUID=1000
       - PGID=1000
       - UMASK=002
-      - TZ=Europe/London
+      - TZ=${TZ}
       - UNBOUND_ENABLED=true
       - UNBOUND_NAMESERVERS=194.242.2.2@853,194.242.2.4@853
     volumes:
@@ -61,7 +61,7 @@ services:
       - PUID=1000
       - PGID=1000
       - UMASK=002
-      - TZ=Europe/London
+      - TZ=${TZ}
       - UNBOUND_ENABLED=true
       - UNBOUND_NAMESERVERS=194.242.2.2@853,194.242.2.4@853
     volumes:
