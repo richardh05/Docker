@@ -1,0 +1,16 @@
+services:
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    labels:
+      glance.name: Vaultwarden
+      glance.icon: si:vaultwarden
+      glance.url: http://${URL}:11001
+      glance.description: Password Manager
+    restart: always
+    environment:
+      SIGNUPS_ALLOWED: "true" # Deactivate this with "false" after you have created your account so that no strangers can register
+    volumes:
+      - ./vaultwarden:/data # the path before the : can be changed
+    ports:
+      - 11001:80 # you can replace the 11001 with your preferred port

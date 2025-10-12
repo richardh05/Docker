@@ -5,7 +5,7 @@ services:
     container_name: tailscale
     labels:
       glance.name: Tailscale
-      glance.icon: sh:tailscale
+      glance.icon: si:tailscale
       glance.description: VPN
       glance.url: http://${URL}:8080
     hostname: jellyfin-server

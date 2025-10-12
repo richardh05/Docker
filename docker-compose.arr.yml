@@ -4,7 +4,7 @@ services:
     container_name: qbittorrent
     labels:
       glance.name: qbittorrent
-      glance.icon: sh:qbittorrent
+      glance.icon: si:qbittorrent
       glance.description: Torrent client
       glance.url: http://${URL}:9090
     ports:
@@ -29,7 +29,7 @@ services:
     container_name: prowlarr
     labels:
       glance.name: Prowlarr
-      glance.icon: sh:prowlarr
+      glance.icon: si:bittorrent
       glance.description: Indexer
       glance.url: http://${URL}:9696
     ports:
@@ -52,7 +52,7 @@ services:
     container_name: radarr
     labels:
       glance.name: Radarr
-      glance.icon: sh:radarr
+      glance.icon: si:radarr
       glance.description: Movie Indexer
       glance.url: http://${URL}:9696
     ports:

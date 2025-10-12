@@ -4,7 +4,7 @@ services:
     image: glanceapp/glance
     labels:
       glance.name: Glance
-      glance.icon: sh:glance
+      glance.icon: si:homepage
       glance.description: Homepage
       glance.url: http://${URL}:8080
     restart: unless-stopped

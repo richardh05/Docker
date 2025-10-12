@@ -4,3 +4,4 @@ include:
   - docker-compose.immich.yml
   - docker-compose.media.yml
   - docker-compose.network.yml
+  - docker-compose.vaultwarden.yml
