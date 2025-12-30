@@ -9,18 +9,11 @@ services:
       glance.url: http://${URL}:9090
     ports:
       - "9090:8080"
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - UMASK=002
-      - TZ=Europe/London
       - WEBUI_PORTS=8080/tcp,8080/udp
       - LIBTORRENT=v1
-      - UNBOUND_ENABLED=true
-      - UNBOUND_NAMESERVERS=194.242.2.2@853,194.242.2.4@853
     volumes:
-      - ./qbittorrent:/config
-      - ./data:/data
+      - ${DATA}/qbittorrent:/config
+      - ${MEDIA}:/media
     dns:
       - 127.0.0.1
 
@@ -34,16 +27,9 @@ services:
       glance.url: http://${URL}:9696
     ports:
       - "9696:9696"
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - UMASK=002
-      - TZ=${TZ}
-      - UNBOUND_ENABLED=true
-      - UNBOUND_NAMESERVERS=194.242.2.2@853,194.242.2.4@853
     volumes:
-      - ./prowlarr:/config
-      - ./data:/data
+      - ${DATA}/prowlarr:/config
+      - ${MEDIA}:/media
     dns:
       - 127.0.0.1
 
@@ -57,15 +43,8 @@ services:
       glance.url: http://${URL}:9696
     ports:
       - "7878:7878"
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - UMASK=002
-      - TZ=${TZ}
-      - UNBOUND_ENABLED=true
-      - UNBOUND_NAMESERVERS=194.242.2.2@853,194.242.2.4@853
     volumes:
-      - ./radarr:/config
-      - ./data:/data
+      - ${DATA}/radarr:/config
+      - ${MEDIA}:/media
     dns:
       - 127.0.0.1

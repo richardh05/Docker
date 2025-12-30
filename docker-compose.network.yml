@@ -14,7 +14,7 @@ services:
       - NET_ADMIN
       - SYS_MODULE
     volumes:
-      - ./tailscale/state:/var/lib/tailscale
+      - ${DATA}/tailscale:/var/lib/tailscale
       - /dev/net/tun:/dev/net/tun
     command: tailscaled
     restart: unless-stopped

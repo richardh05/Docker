@@ -11,6 +11,6 @@ services:
     environment:
       SIGNUPS_ALLOWED: "true" # Deactivate this with "false" after you have created your account so that no strangers can register
     volumes:
-      - ./vaultwarden:/data # the path before the : can be changed
+      - ${DATA}/Vaultwarden:/data # the path before the : can be changed
     ports:
       - 11001:80 # you can replace the 11001 with your preferred port

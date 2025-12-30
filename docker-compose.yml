@@ -1,7 +1,7 @@
 include:
-  - docker-compose.arr.yml
-  - docker-compose.home.yml
-  - docker-compose.immich.yml
+ # - arr/docker-compose.yml
+  - glance/docker-compose.yml
+  - immich/docker-compose.yml
   - docker-compose.media.yml
   - docker-compose.network.yml
   - docker-compose.vaultwarden.yml

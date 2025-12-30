@@ -11,9 +11,11 @@ services:
     ports:
       - "8096:8096"  # host:container
     volumes:
-      - ./jellyfin:/config
-      - ./.cache/jellyfin:/cache
-      - /home/richard/Videos:/media
+      - ${DATA}/jellyfin/config:/config
+      - ${DATA}/jellyfin/cache:/cache
+      - ${FILMS}:/films
+      - ${MUSIC}:/music
+      - ${SHOWS}:/shows
     restart: unless-stopped
     env_file: .env
 
@@ -28,9 +30,7 @@ services:
       - 13378:80
     volumes:
       - ${AUDIOBOOKS}:/audiobooks
-      - ${PODCASTS}:/podcasts
-      - ./audiobookshelf/config:/config
-      - ./audiobookshelf/metadata:/metadata
-    environment:
-      - TZ=${TZ}
+      - ${DATA}/audiobookshelf/config:/config
+      - ${DATA}/audiobookshelf/metadata:/metadata
+
 
