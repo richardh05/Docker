@@ -9,13 +9,16 @@ services:
       glance.url: http://${URL}:9090
     ports:
       - "9090:8080"
-      - WEBUI_PORTS=8080/tcp,8080/udp
+    environment:
       - LIBTORRENT=v1
+      - WEBUI_PORTS=8080/tcp,8080/udp
     volumes:
       - ${DATA}/qbittorrent:/config
       - ${MEDIA}:/media
     dns:
       - 127.0.0.1
+    env_file: .env
+
 
   prowlarr:
     image: ghcr.io/hotio/prowlarr
@@ -32,6 +35,8 @@ services:
       - ${MEDIA}:/media
     dns:
       - 127.0.0.1
+    env_file: .env
+
 
   radarr:
     image: ghcr.io/hotio/radarr
@@ -40,7 +45,7 @@ services:
       glance.name: Radarr
       glance.icon: si:radarr
       glance.description: Movie Indexer
-      glance.url: http://${URL}:9696
+      glance.url: http://${URL}:7878
     ports:
       - "7878:7878"
     volumes:
@@ -48,3 +53,5 @@ services:
       - ${MEDIA}:/media
     dns:
       - 127.0.0.1
+    env_file: .env
+
