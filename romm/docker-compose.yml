@@ -10,6 +10,12 @@ services:
         image: rommapp/romm:latest
         container_name: romm
         restart: unless-stopped
+        labels:
+          glance.name: Romm
+          glance.icon: si:itchdotio
+          glance.description: Retro Games
+          glance.url: http://${URL}:80
+          glance.id: romm
         env_file: api.env
         environment:
             - DB_HOST=romm-db
@@ -34,6 +40,9 @@ services:
         image: mariadb:latest
         container_name: romm-db
         restart: unless-stopped
+        labels:
+          glance.parent: romm
+          glance.name: Database
         environment:
             - MARIADB_ROOT_PASSWORD=${DB_ROOT_PASSWORD} # Use a unique, secure password
             - MARIADB_DATABASE=${DB_NAME}

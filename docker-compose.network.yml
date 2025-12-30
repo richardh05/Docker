@@ -7,7 +7,7 @@ services:
       glance.name: Tailscale
       glance.icon: si:tailscale
       glance.description: VPN
-      glance.url: http://${URL}:8080
+      glance.url: https://login.tailscale.com/admin/machines
     hostname: jellyfin-server
     network_mode: "host"   # required so tailscale gives your *host* a tailnet IP
     cap_add:

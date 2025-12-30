@@ -3,9 +3,9 @@ services:
     image: ghcr.io/hotio/qbittorrent
     container_name: qbittorrent
     labels:
-      glance.name: qbittorrent
+      glance.name: qBittorrent
       glance.icon: si:qbittorrent
-      glance.description: Torrent client
+      glance.description: Torrents
       glance.url: http://${URL}:9090
     ports:
       - "9090:8080"
@@ -44,7 +44,7 @@ services:
     labels:
       glance.name: Radarr
       glance.icon: si:radarr
-      glance.description: Movie Indexer
+      glance.description: Film Indexer
       glance.url: http://${URL}:7878
     ports:
       - "7878:7878"

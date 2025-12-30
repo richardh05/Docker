@@ -16,7 +16,7 @@ services:
       glance.name: Immich
       glance.icon: si:immich
       glance.url: http://${URL}:2283
-      glance.description: Image & video management
+      glance.description: Photos
       glance.id: immich
     image: ghcr.io/immich-app/immich-server:${IMMICH_VERSION:-release}
     # extends:

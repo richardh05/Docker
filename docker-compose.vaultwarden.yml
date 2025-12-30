@@ -6,7 +6,7 @@ services:
       glance.name: Vaultwarden
       glance.icon: si:vaultwarden
       glance.url: http://${URL}:11001
-      glance.description: Password Manager
+      glance.description: Passwords
     restart: always
     environment:
       SIGNUPS_ALLOWED: "true" # Deactivate this with "false" after you have created your account so that no strangers can register

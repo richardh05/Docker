@@ -32,11 +32,20 @@ services:
   paperless-redis:
     image: docker.io/library/redis:8
     restart: unless-stopped
+    labels:
+      glance.name: Redis
+      glance.parent: paperlessngx
     volumes:
       - ${DATA}/paperless-redis:/data
   paperless-webserver:
     image: ghcr.io/paperless-ngx/paperless-ngx:latest
     restart: unless-stopped
+    labels:
+      glance.name: Paperless-ngx
+      glance.icon: si:paperlessngx
+      glance.url: http://${URL}:8000
+      glance.description: Documents
+      glance.id: paperlessngx
     depends_on:
       - paperless-redis
       - paperless-gotenberg
@@ -56,6 +65,9 @@ services:
   paperless-gotenberg:
     image: docker.io/gotenberg/gotenberg:8.25
     restart: unless-stopped
+    labels:
+      glance.name: Gotenberg
+      glance.parent: paperlessngx
     # The gotenberg chromium route is used to convert .eml files. We do not
     # want to allow external content like tracking pixels or even javascript.
     command:
@@ -65,3 +77,6 @@ services:
   paperless-tika:
     image: docker.io/apache/tika:latest
     restart: unless-stopped
+    labels:
+      glance.name: Tika
+      glance.parent: paperlessngx

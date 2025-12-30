@@ -5,7 +5,7 @@ services:
     labels:
       glance.name: Jellyfin
       glance.icon: si:jellyfin
-      glance.description: Movies & Shows
+      glance.description: Films & Shows
       glance.url: http://${URL}:8096
     user: "1000:1000"
     ports:
@@ -24,7 +24,7 @@ services:
     labels:
       glance.name: Audiobookshelf
       glance.icon: si:audiobookshelf
-      glance.description: Audiobooks & Podcasts
+      glance.description: Audiobooks & eBooks
       glance.url: http://${URL}:13378
     ports:
       - 13378:80
