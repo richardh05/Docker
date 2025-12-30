@@ -3,7 +3,7 @@ include:
   - glance/docker-compose.yml
   - immich/docker-compose.yml
   - media/docker-compose.yml
+  - network/docker-compose.yml
   - paperless/docker-compose.yml
   - romm/docker-compose.yml
-  - docker-compose.network.yml
   - docker-compose.vaultwarden.yml
