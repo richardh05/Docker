@@ -2,6 +2,7 @@ include:
   - arr/docker-compose.yml
   - glance/docker-compose.yml
   - immich/docker-compose.yml
+  - romm/docker-compose.yml
   - docker-compose.media.yml
   - docker-compose.network.yml
   - docker-compose.vaultwarden.yml
