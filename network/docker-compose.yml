@@ -31,7 +31,6 @@ services:
       glance.icon: si:protondrive
       glance.description: Network Storage
       glance.url: smb://${URL}/Media
-    restart: unless-stopped
     network_mode: host
     environment:
       SAMBA_GLOBAL_CONFIG_workgroup: WORKGROUP
@@ -54,3 +53,4 @@ services:
         valid users = richard, person
     volumes:
       - ${MEDIA}:/shares/media
+    restart: unless-stopped

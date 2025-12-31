@@ -32,5 +32,6 @@ services:
       - ${AUDIOBOOKS}:/audiobooks
       - ${DATA}/audiobookshelf/config:/config
       - ${DATA}/audiobookshelf/metadata:/metadata
-
+    restart: unless-stopped
+    env_file: .env
 

@@ -17,7 +17,8 @@ services:
       - ${MEDIA}:/media
     dns:
       - 127.0.0.1
-    env_file: .env
+    env_file: hotio.env
+    restart: unless-stopped
 
 
   prowlarr:
@@ -35,7 +36,8 @@ services:
       - ${MEDIA}:/media
     dns:
       - 127.0.0.1
-    env_file: .env
+    env_file: hotio.env
+    restart: unless-stopped
 
 
   radarr:
@@ -53,5 +55,6 @@ services:
       - ${MEDIA}:/media
     dns:
       - 127.0.0.1
-    env_file: .env
+    env_file: hotio.env
+    restart: unless-stopped
 

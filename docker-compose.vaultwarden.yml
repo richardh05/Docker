@@ -7,7 +7,7 @@ services:
       glance.icon: si:vaultwarden
       glance.url: http://${URL}:11001
       glance.description: Passwords
-    restart: always
+    restart: unless-stopped
     environment:
       SIGNUPS_ALLOWED: "true" # Deactivate this with "false" after you have created your account so that no strangers can register
     volumes:
