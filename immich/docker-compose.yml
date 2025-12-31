@@ -36,6 +36,10 @@ services:
     restart: unless-stopped
     healthcheck:
       disable: false
+    devices:
+      - /dev/dri/renderD128:/dev/dri/renderD128
+    group_add:
+      - ${RENDER_GID}
 
   immich-machine-learning:
     container_name: immich_machine_learning
@@ -55,6 +59,10 @@ services:
     restart: unless-stopped
     healthcheck:
       disable: false
+    devices:
+      - /dev/dri/renderD128:/dev/dri/renderD128
+    group_add:
+      - ${RENDER_GID}
 
   redis:
     container_name: immich_redis

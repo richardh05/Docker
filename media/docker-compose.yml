@@ -17,6 +17,10 @@ services:
       - ${MUSIC}:/music
       - ${SHOWS}:/shows
     restart: unless-stopped
+    devices:
+      - /dev/dri/renderD128:/dev/dri/renderD128
+    group_add:
+      - ${RENDER_GID}
 
   audiobookshelf:
     image: ghcr.io/advplyr/audiobookshelf:latest
