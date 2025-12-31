@@ -57,7 +57,7 @@ services:
       - ${DATA}/paperless:/usr/src/paperless/data
       - ${MEDIA}/Paperless:/usr/src/paperless/media
       - ${MEDIA}/Paperless/consume:/usr/src/paperless/consume
-    env_file: .env
+    env_file: config.env
     environment:
       PAPERLESS_REDIS: redis://paperless-redis:6379
       PAPERLESS_TIKA_ENABLED: 1

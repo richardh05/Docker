@@ -17,7 +17,6 @@ services:
       - ${MUSIC}:/music
       - ${SHOWS}:/shows
     restart: unless-stopped
-    env_file: .env
 
   audiobookshelf:
     image: ghcr.io/advplyr/audiobookshelf:latest
@@ -33,5 +32,3 @@ services:
       - ${DATA}/audiobookshelf/config:/config
       - ${DATA}/audiobookshelf/metadata:/metadata
     restart: unless-stopped
-    env_file: .env
-

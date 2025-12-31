@@ -19,9 +19,9 @@ services:
         env_file: api.env
         environment:
             - DB_HOST=romm-db
-            - DB_NAME=${DB_NAME}
-            - DB_USER=${DB_USER}
-            - DB_PASSWD=${DB_PASSWORD}
+            - DB_NAME=${ROMM_DB_NAME}
+            - DB_USER=${ROMM_DB_USER}
+            - DB_PASSWD=${ROMM_DB_PASSWORD}
             - ROMM_AUTH_SECRET_KEY=${ROMM_AUTH_SECRET_KEY}
         volumes:
             - ${DATA}/romm_resources:/romm/resources # Resources fetched from IGDB (covers, screenshots, etc.)
@@ -44,10 +44,10 @@ services:
           glance.parent: romm
           glance.name: Database
         environment:
-            - MARIADB_ROOT_PASSWORD=${DB_ROOT_PASSWORD} # Use a unique, secure password
-            - MARIADB_DATABASE=${DB_NAME}
-            - MARIADB_USER=${DB_USER}
-            - MARIADB_PASSWORD=${DB_PASSWORD}
+            - MARIADB_ROOT_PASSWORD=${ROMM_DB_ROOT_PASSWORD} # Use a unique, secure password
+            - MARIADB_DATABASE=${ROMM_DB_NAME}
+            - MARIADB_USER=${ROMM_DB_USER}
+            - MARIADB_PASSWORD=${ROMM_DB_PASSWORD}
         volumes:
             - ${DATA}/romm-mariadb:/var/lib/mysql
         healthcheck:
