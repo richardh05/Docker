@@ -7,6 +7,7 @@ services:
       glance.name: Tailscale
       glance.icon: si:tailscale
       glance.description: VPN
+      glance.category: System
       glance.url: https://login.tailscale.com/admin/machines
     hostname: barry
     network_mode: "host"
@@ -30,6 +31,7 @@ services:
       glance.name: Samba
       glance.icon: si:protondrive
       glance.description: Network Storage
+      glance.category: Productivity
       glance.url: smb://${URL}/Media
     network_mode: host
     environment:

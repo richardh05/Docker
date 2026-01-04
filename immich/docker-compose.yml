@@ -17,6 +17,7 @@ services:
       glance.icon: si:immich
       glance.url: http://${URL}:2283
       glance.description: Photos
+      glance.category: Media
       glance.id: immich
     image: ghcr.io/immich-app/immich-server:${IMMICH_VERSION:-release}
     # extends:
@@ -25,6 +26,7 @@ services:
     volumes:
       # Do not edit the next line. If you want to change the media storage location on your system, edit the value of UPLOAD_LOCATION in the .env file
       - ${IMMICH_UPLOAD_LOCATION}:/data
+      - ${PICTURES}:/pictures
       - /etc/localtime:/etc/localtime:ro
     env_file:
       - config.env
@@ -78,7 +80,7 @@ services:
     container_name: immich_postgres
     labels:
       glance.parent: immich
-      glance.name: DB
+      glance.name: Database
     image: ghcr.io/immich-app/postgres:14-vectorchord0.4.3-pgvectors0.2.0@sha256:41eacbe83eca995561fe43814fd4891e16e39632806253848efaf04d3c8a8b84
     environment:
       POSTGRES_PASSWORD: ${IMMICH_DB_PASSWORD}

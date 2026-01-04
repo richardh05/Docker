@@ -46,6 +46,7 @@ services:
       glance.icon: si:paperlessngx
       glance.url: http://${URL}:8000
       glance.description: Documents
+      glance.category: Productivity
       glance.id: paperlessngx
     depends_on:
       - paperless-redis
