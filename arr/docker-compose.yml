@@ -6,6 +6,7 @@ services:
       glance.name: qBittorrent
       glance.icon: si:qbittorrent
       glance.description: Torrents
+      glance.category: System
       glance.url: http://${URL}:9090
     ports:
       - "9090:8080"
@@ -28,6 +29,7 @@ services:
       glance.name: Prowlarr
       glance.icon: si:bittorrent
       glance.description: Indexer
+      glance.category: System
       glance.url: http://${URL}:9696
     ports:
       - "9696:9696"
@@ -47,6 +49,7 @@ services:
       glance.name: Radarr
       glance.icon: si:radarr
       glance.description: Film Indexer
+      glance.category: System
       glance.url: http://${URL}:7878
     ports:
       - "7878:7878"
