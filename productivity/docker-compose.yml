@@ -1,0 +1,29 @@
+services:
+  mealie:
+    image: ghcr.io/mealie-recipes/mealie:v3.9.2 # 
+    container_name: mealie
+    restart: always
+    labels:
+      glance.name: Mealie
+      glance.icon: si:mealie
+      glance.url: http://${URL}:9925
+      glance.description: Recipes
+      glance.category: Productivity
+      glance.id: mealie
+    ports:
+        - "9925:9000" # 
+    deploy:
+      resources:
+        limits:
+          memory: 1000M # 
+    volumes:
+      - ${DATA}/mealie:/app/data/
+    environment:
+      # Set Backend ENV Variables Here
+      ALLOW_SIGNUP: ${SIGNUPS}
+      PUID: 1000
+      PGID: 1000
+      TZ: Europe/London
+
+volumes:
+  mealie-data:

@@ -4,7 +4,7 @@ services:
     image: glanceapp/glance
     labels:
       glance.name: Glance
-      glance.icon: si:homepage
+      glance.icon: si:glance
       glance.description: Homepage
       glance.category: System
       glance.url: http://${URL}:8080
