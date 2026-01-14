@@ -38,3 +38,44 @@ services:
       - ${DATA}/audiobookshelf/config:/config
       - ${DATA}/audiobookshelf/metadata:/metadata
     restart: unless-stopped
+
+  miniflux:
+    image: miniflux/miniflux:latest
+    labels:
+      glance.name: Miniflux
+      glance.icon: si:rss
+      glance.description: Articles
+      glance.category: Media
+      glance.url: http://${URL}:8060
+    ports:
+      - "8060:8080"
+    depends_on:
+      miniflux-db:
+        condition: service_healthy
+    environment:
+      # - DATABASE_URL=postgres://miniflux:secret@db/miniflux?sslmode=disable
+      - DATABASE_URL=postgres://miniflux:secret@miniflux-db/miniflux?sslmode=disable
+      - RUN_MIGRATIONS=1
+      - CREATE_ADMIN=1
+      - ADMIN_USERNAME=admin
+      - ADMIN_PASSWORD=test123
+  miniflux-db:
+    image: postgres:18
+    labels:
+      glance.parent: Miniflux
+      glance.name: Database
+    environment:
+      - POSTGRES_USER=miniflux
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_DB=miniflux
+      - PGDATA=/var/lib/postgresql/data
+    volumes:
+      # You may have to adjust the volume path depending on the version of Postgres
+      # Postgres 18 uses /var/lib/postgresql
+      # Postgres 17 and below uses /var/lib/postgresql/data
+      # See https://hub.docker.com/_/postgres#pgdata
+      - ${DATA}/miniflux:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "miniflux"]
+      interval: 10s
+      start_period: 30s
