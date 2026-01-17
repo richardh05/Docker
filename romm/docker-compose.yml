@@ -15,7 +15,7 @@ services:
           glance.icon: si:itchdotio
           glance.description: Retro Games
           glance.category: Media
-          glance.url: http://${URL}:80
+          glance.url: ${URL}/romm
           glance.id: romm
         environment:
             - DB_HOST=romm-db

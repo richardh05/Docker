@@ -7,7 +7,7 @@ services:
       glance.icon: si:glance
       glance.description: Homepage
       glance.category: System
-      glance.url: http://${URL}:8080
+      glance.url: ${URL}
     restart: unless-stopped
     volumes:
       - ./config:/app/config

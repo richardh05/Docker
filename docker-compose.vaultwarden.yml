@@ -5,7 +5,7 @@ services:
     labels:
       glance.name: Vaultwarden
       glance.icon: si:vaultwarden
-      glance.url: http://${URL}:11001
+      glance.url: ${URL}/vaultwarden
       glance.category: Productivity
       glance.description: Passwords
     restart: unless-stopped

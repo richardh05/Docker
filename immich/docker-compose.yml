@@ -15,7 +15,7 @@ services:
     labels:
       glance.name: Immich
       glance.icon: si:immich
-      glance.url: http://${URL}:2283
+      glance.url: ${URL}/immich
       glance.description: Photos
       glance.category: Media
       glance.id: immich

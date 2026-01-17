@@ -6,7 +6,7 @@ services:
     labels:
       glance.name: Mealie
       glance.icon: si:mealie
-      glance.url: http://${URL}:9925
+      glance.url: ${URL}/mealie
       glance.description: Recipes
       glance.category: Productivity
       glance.id: mealie
@@ -31,7 +31,7 @@ services:
     labels:
       glance.name: Syncthing
       glance.icon: si:syncthing
-      glance.url: http://${URL}:8384
+      glance.url: ${URL}/syncthing
       glance.description: File Sync
       glance.category: Productivity
       glance.id: syncthing
@@ -39,7 +39,7 @@ services:
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
-      # - STGUIADDRESS=
+      - STGUIADDRESS=${URL}/syncthing
     volumes:
       - ${DATA}/syncthing:/var/syncthing/config
       - ${MEDIA}/Sync:/var/syncthing
@@ -56,13 +56,13 @@ services:
     labels:
       glance.name: Vikunja
       glance.icon: si:vikunja
-      glance.url: http://${URL}:3456
+      glance.url: ${URL}/vikunja
       glance.description: Todo Lists
       glance.category: Productivity
       glance.id: vikunja
     environment:
       VIKUNJA_SERVICE_JWTSECRET: ${VIKUNJA_SECRET}
-      VIKUNJA_SERVICE_PUBLICURL: ${PREFIX}${URL}:3456
+      VIKUNJA_SERVICE_PUBLICURL: ${URL}/vikunja
       VIKUNJA_DATABASE_TYPE: sqlite
     ports:
       - 3456:3456
